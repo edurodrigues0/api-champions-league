@@ -1,4 +1,8 @@
 import { Request, Response } from "express"
-export const getPlayers = (req: Request, res: Response) => {
-  res.status(200).json({ player: "Neymar" })
+import { getPlayersData } from "../services/players/get-players"
+export const getPlayers = async (req: Request, res: Response) => {
+
+  const data = await getPlayersData()
+
+  res.status(200).json(data)
 }
