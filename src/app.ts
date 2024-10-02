@@ -1,13 +1,13 @@
-import express, { Request, Response } from "express";
+import express from "express";
+
+import { getPlayer } from "./controllers/players-controller";
 
 export function createApp() {
   const app = express();
 
   app.use(express.json())
   
-  app.get("/", (_req: Request, res: Response) => {
-    res.status(200).json({ player: "Neymar" })
-  })
+  app.get("/players", getPlayer)
 
   return app
 }
