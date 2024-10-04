@@ -5,11 +5,11 @@ export const getPlayersData = async () => {
   const data = await PlayerRepository.fetchPlayers();
   let response = null;
 
-  if(data) {
-    response = await StatusHttpOK(data);
-  } else {
-    response = await StatusHttpNoContent();
+  if(!data) {
+    return await StatusHttpNoContent();
   }
+
+  response = await StatusHttpOK(data);
 
   return response;
 }
