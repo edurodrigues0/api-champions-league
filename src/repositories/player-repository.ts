@@ -53,3 +53,14 @@ export const createPlayer = async (player: PlayerModel): Promise<number | null> 
   database.push(player)
   return player.id
 }
+
+export const deletePlayer = async (playerId: number): Promise<void | null> => {
+  const playerIndex = database.findIndex(player => player.id === playerId);
+
+  if(playerIndex !== -1) {
+    database.splice(playerId, 1);
+    return
+  }
+
+  return null
+}
