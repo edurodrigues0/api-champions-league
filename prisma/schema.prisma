@@ -18,7 +18,7 @@ model Player {
 
   clubId     Int
   club       Club        @relation(fields: [clubId], references: [id])
-  Statistics Statistics?
+  statistics Statistics?
 
   @@map("players")
 }
@@ -28,6 +28,8 @@ model Club {
   name String @unique
 
   players Player[]
+
+  @@map("clubs")
 }
 
 model Statistics {
@@ -52,4 +54,6 @@ model Statistics {
   reflexes    Int?
   speed       Int?
   positioning Int?
+
+  @@map("statistics")
 }

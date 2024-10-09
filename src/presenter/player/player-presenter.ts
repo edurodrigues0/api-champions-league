@@ -8,7 +8,7 @@ interface PlayerPresenter {
   club: {
     name: string;
   };
-  Statistics: any; 
+  statistics: any; 
 }
 
 export function PlayerPresenter(player: PlayerPresenter) {
@@ -18,22 +18,22 @@ export function PlayerPresenter(player: PlayerPresenter) {
     nationality: player.nationality,
     position: player.position,
     club: player.club.name,
-    statistics: player.Statistics.type === "PLAYER" ? {
-      overall: player.Statistics.overall,
-      pace: player.Statistics.pace,
-      shooting: player.Statistics.shooting,
-      passing: player.Statistics.passing,
-      dribbling: player.Statistics.dribbling,
-      defending: player.Statistics.defending,
-      physical: player.Statistics.physical,
+    statistics: player.statistics.type === "PLAYER" ? {
+      overall: player.statistics.overall,
+      pace: player.statistics.pace,
+      shooting: player.statistics.shooting,
+      passing: player.statistics.passing,
+      dribbling: player.statistics.dribbling,
+      defending: player.statistics.defending,
+      physical: player.statistics.physical,
     } : {
-      overall:player.Statistics.overall,
-      diving:player.Statistics.diving,
-      handling:player.Statistics.handling,
-      kicking:player.Statistics.kicking,
-      reflexes:player.Statistics.reflexes,
-      speed:player.Statistics.speed,
-      positioning:player.Statistics.position,
+      overall:player.statistics.overall,
+      diving:player.statistics.diving,
+      handling:player.statistics.handling,
+      kicking:player.statistics.kicking,
+      reflexes:player.statistics.reflexes,
+      speed:player.statistics.speed,
+      positioning:player.statistics.position,
     }
   }
 }

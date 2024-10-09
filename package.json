@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dist": "tsup src",
+    "db:seed": "npx prisma db seed",
     "start:dev": "tsx  --env-file=.env src/server.ts",
     "start:watch": "tsx watch --env-file=.env src/server.ts",
     "start:dist": "npm run dist && node dist/src/index.js",
@@ -12,6 +13,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "description": "",
   "devDependencies": {
     "@rocketseat/eslint-config": "2.2.2",

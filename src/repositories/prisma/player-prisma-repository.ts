@@ -4,8 +4,6 @@ import { PlayerStatistics, GoalkeeperStatistics } from "../../models/statistics-
 import { PlayerPresenter } from "../../presenter/player/player-presenter";
 import { isPlayerStatistics } from "../../utils/is-player-statistics";
 
-const database: PlayerModel[] = []
-
 export const fetchPlayers = async (): Promise<PlayerModel[]> => {
   const players = await prisma.player.findMany({
     select: {
@@ -18,7 +16,7 @@ export const fetchPlayers = async (): Promise<PlayerModel[]> => {
           name: true
         }
       },
-      Statistics: true,
+      statistics: true,
     }
   });
 
@@ -42,7 +40,7 @@ export const findPlayerById = async (
           name: true,
         },
       },
-      Statistics: true,
+      statistics: true,
     },
   })
 
@@ -106,7 +104,7 @@ export const createPlayer = async (
             create: { name: player.club }
           }
         },
-        Statistics: {
+        statistics: {
           create: statisticsData,
         }
       }
