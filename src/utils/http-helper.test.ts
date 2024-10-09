@@ -33,7 +33,7 @@ describe("Test function http code", () => {
 
     expect(res.statusCode).toEqual(404)
     expect(res.body).toMatchObject({
-      message: 'Resource not found.'
+      message: 'Resource not found'
     })
   });
 })

@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Player {
+  id          Int    @id @default(autoincrement())
+  name        String
+  nationality String
+  position    String
+
+  clubId     Int
+  club       Club        @relation(fields: [clubId], references: [id])
+  Statistics Statistics?
+
+  @@map("players")
+}
+
+model Club {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  players Player[]
+}
+
+model Statistics {
+  id       Int    @id @default(autoincrement())
+  type     String // Discrimineted: "Player" or "Goalkeeper"
+  playerId Int    @unique
+  player   Player @relation(fields: [playerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  // Stastics of player
+  overall   Int?
+  pace      Int?
+  shooting  Int?
+  passing   Int?
+  dribbling Int?
+  defending Int?
+  physical  Int?
+
+  // Stastics of goalkeeper
+  diving      Int?
+  handling    Int?
+  kicking     Int?
+  reflexes    Int?
+  speed       Int?
+  positioning Int?
+}

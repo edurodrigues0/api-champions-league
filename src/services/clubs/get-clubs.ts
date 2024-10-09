@@ -1,8 +1,8 @@
-import { fetchPlayers } from "../../repositories/prisma/player-prisma-repository";
+import * as ClubsRepository from "../../repositories/clubs-repository";
 import { StatusHttpNoContent, StatusHttpOK } from "../../utils/http-helper";
 
-export const getPlayersData = async () => {
-  const data = await fetchPlayers();
+export const getClubsData = async () => {
+  const data = await ClubsRepository.fetchClubs();
   let response = null;
 
   if(!data) {

@@ -1,8 +1,8 @@
-import * as PlayerRepository from "../../repositories/player-repository";
+import { findPlayerById } from "../../repositories/prisma/player-prisma-repository";
 import { StatusHttpNotFound, StatusHttpOK } from "../../utils/http-helper";
 
 export const getPlayerByIdData = async (playerId: number) => {
-  const data = await PlayerRepository.findPlayerById(playerId);
+  const data = await findPlayerById(playerId);
   let response = null;
 
   if(!data) {

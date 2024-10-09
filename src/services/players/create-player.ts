@@ -1,5 +1,5 @@
 import { PlayerModel } from "../../models/player-model";
-import { createPlayer } from "../../repositories/player-repository";
+import { createPlayer } from "../../repositories/prisma/player-prisma-repository"
 import { StatusHttpBadRequest, StatusHttpConflict, StatusHttpCreated, StatusHttpNoContent } from "../../utils/http-helper";
 
 export const createPlayerData = async (player: PlayerModel) => {

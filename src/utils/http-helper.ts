@@ -24,20 +24,20 @@ export const StatusHttpNoContent = async (): Promise<HttpResponse> => {
 export const StatusHttpNotFound = async (): Promise<HttpResponse> => {
   return {
     statusCode: 404,
-    body: { message: "Resource not found." },
+    body: { message: "Resource not found" },
   }
 }
 
 export const StatusHttpBadRequest = async (err?: Error): Promise<HttpResponse> => {
   return {
     statusCode: 400,
-    body: { message: err?.message || "Bad Request." }
+    body: { message: err?.message || "Bad Request" }
   }
 }
 
 export const StatusHttpConflict = async (err?: Error): Promise<HttpResponse> => {
   return {
     statusCode: 409,
-    body: { message: err?.message || "Conflict data."}
+    body: { message: err?.message || "Conflict data"}
   }
 }

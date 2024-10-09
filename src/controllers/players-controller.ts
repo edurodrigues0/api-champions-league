@@ -3,7 +3,7 @@ import { getPlayersData } from "../services/players/get-players"
 import { getPlayerByIdData } from "../services/players/get-player-by-id"
 import { createPlayerData } from "../services/players/create-player"
 import { deletePlayerByIdData } from "../services/players/delete-player-by-id"
-import { PlayerStatistics, GoalkeeperStatics } from "../models/statistics-model"
+import { PlayerStatistics, GoalkeeperStatistics } from "../models/statistics-model"
 import { updatePlayerData } from "../services/players/update-player"
 
 export const getPlayers = async (_req: Request, res: Response) => {
@@ -32,7 +32,7 @@ export const createPlayer = async (req: Request, res: Response) => {
 
 export const updatePlayer = async (req: Request, res: Response) => {
   const playerId = parseInt(req.params.playerId);
-  const playerData: GoalkeeperStatics | PlayerStatistics = req.body;
+  const playerData: GoalkeeperStatistics | PlayerStatistics = req.body;
 
   const httpResponse = await updatePlayerData(playerId, playerData);
   const { statusCode, body } = httpResponse;
